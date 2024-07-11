@@ -1,0 +1,43 @@
+@use '@angular/material' as mat;
+
+@mixin theme($theme) {
+
+
+  $density: mat.get-theme-density($theme);
+  $gutter: 4px;
+
+  @if ($density==0) {
+    $gutter: 24px;
+  } @else if ($density==-1) {
+    $gutter: 16px;
+  } @else if ($density==-2) {
+    $gutter: 8px;
+  } @else {
+    $gutter: 4px;
+  }
+
+  .button-row, .form-field-row {
+    .mat-mdc-button-base + .mat-mdc-button-base {
+      margin-left: $gutter;
+    }
+
+    .mat-mdc-form-field + .mat-mdc-form-field {
+      margin-left: $gutter;
+    }
+  }
+
+
+}
+
+
+//.button-row, .form-field-row {
+//  .mat-mdc-button-base + .mat-mdc-button-base {
+//    margin-left: 8px;
+//  }
+//
+//  .mat-mdc-form-field + .mat-mdc-form-field {
+//    margin-left: 8px;
+//  }
+//}
+
+

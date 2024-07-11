@@ -1,0 +1,18 @@
+
+@use '@angular/material' as mat;
+@use '../app_theme';
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$cyan-palette,
+    tertiary: mat.$orange-palette
+  )
+));
+
+@include mat.color-variants-backwards-compatibility($theme);
+@include app_theme.theme($theme);
+
+:root {
+  @include mat.all-component-themes($theme);
+}

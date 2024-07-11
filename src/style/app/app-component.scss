@@ -1,0 +1,74 @@
+@use '@angular/material/index' as mat;
+@use 'sass:color';
+
+
+@mixin theme($theme) {
+
+  .sidenav-container {
+    height: calc(100vh - 60px);
+    // surface
+
+    background: mat.get-theme-color($theme, surface) !important;
+
+    .mat-sidenav-content {
+      height: calc(100vh - 60px);
+      padding: 8px;
+      overflow: scroll;
+
+      background: mat.get-theme-color($theme, primary, 95) !important;
+    }
+  }
+
+
+  .sidenav-container {
+
+
+    .mat-sidenav {
+      //border-right: 1px solid mat.get-theme-color($theme, outline-variant);
+      //border-right: 1px solid #d6d9dc;
+      width: 200px;
+      padding: 8px;
+      //border-top-right-radius: 4px;
+      //border-bottom-right-radius: 4px;
+    }
+  }
+  //.docs-component-viewer-nav-content {
+  //  border-right: 1px solid mat.get-theme-color($theme, outline-variant);
+  //
+  //  &::-webkit-scrollbar-thumb {
+  //    background: rgba(0, 0, 0, .26);
+  //  }
+
+  a.sidenav-item-selected {
+    background: rgba(mat.get-theme-color($theme, primary), 0.15);
+
+    .mdc-list-item__primary-text {
+      color: color.adjust(
+          mat.get-theme-color($theme, primary),
+        $lightness: if(mat.get-theme-type($theme) == dark, 25%, 0%)
+      );
+    }
+
+    &:hover {
+      background: rgba(mat.get-theme-color($theme, primary), 0.25);
+    }
+  }
+
+
+  .app-nav-bar {
+    @include mat.elevation(8);
+    // surface
+    //color: mat.get-theme-color($theme, primary) !important;
+    background: mat.get-theme-color($theme, tertiary, 90) !important;
+
+    //.mat-mdc-button-base {
+    //  color: mat.get-theme-color($theme, primary) !important;
+    //}
+  }
+}
+
+//}
+
+
+
+

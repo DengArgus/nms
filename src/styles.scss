@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use 'sass:color';
+@use "style/app_theme";
+@use "style/customer";
+@use "style/grid";
+@use "style/core/general";
+
+
+$my-primary: mat.$azure-palette;
+$my-warn: mat.$blue-palette;
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $my-primary,
+    tertiary: $my-warn,
+  ),
+  density: (
+    scale: -1,
+  )
+));
+
+@include mat.core();
+@include mat.color-variants-backwards-compatibility($theme);
+@include mat.typography-hierarchy($theme);
+@include app_theme.theme($theme);
+.form-field-row {
+  //@include mat.input-density(-5);
+  @include mat.form-field-density(-4);
+}
+
+:root {
+  @include mat.all-component-themes($theme);
+}
+
+

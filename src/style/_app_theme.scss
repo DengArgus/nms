@@ -1,0 +1,7 @@
+@use "app/app-component";
+@use "customer";
+
+@mixin theme($theme) {
+  @include app-component.theme($theme);
+  @include customer.theme($theme);
+}
